@@ -24,8 +24,8 @@ Configure your game paths within the TKMM Desktop App before using the plugin!
 
 ```json
 "extensionDependencies": [
-  "TKVSC-Team.totk-vscode",
-  "TKVSC-Team.tkvsc-tkmm-cli"
+  "BladesawStudios.totk-vscode",
+  "BladesawStudios.tkvsc-tkmm-cli"
 ]
 ```
 

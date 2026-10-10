@@ -2,12 +2,12 @@
  * Minimal TKVSC API types for addon development.
  *
  * Until `@tkvsc/api` is published, keep this file in sync with:
- * https://github.com/TKVSC-Team/totk-vscode/blob/main/docs/api/v1.md
+ * https://github.com/BladesawStudios/totk-vscode/blob/main/docs/api/v1.md
  *
  */
 import type * as vscode from 'vscode';
 
-export const TKVSC_EXTENSION_ID = 'TKVSC-Team.totk-vscode';
+export const TKVSC_EXTENSION_ID = 'BladesawStudios.totk-vscode';
 
 export const TKVSC_API_VERSION = 1 as const;
 
@@ -61,12 +61,6 @@ export interface TkvscApi {
         handler: string;
         language?: string;
         editable?: boolean;
-    }): vscode.Disposable;
-    registerBridgeHandler(registration: {
-        kind: string;
-        modulePath: string;
-        readFunction?: string;
-        writeFunction?: string;
     }): vscode.Disposable;
     registerGameProfile(registration: {
         id: string;

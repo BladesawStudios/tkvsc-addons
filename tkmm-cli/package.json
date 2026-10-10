@@ -4,16 +4,16 @@
   "displayName": "TKVSC - TKMM CLI",
   "description": "Bundles Tkmm.CLI and exposes a consumer API for other TKVSC addons.",
   "version": "1.0.1",
-  "publisher": "TKVSC-Team",
+  "publisher": "BladesawStudios",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/TKVSC-Team/tkvsc-addons",
+    "url": "https://github.com/BladesawStudios/tkvsc-addons",
     "directory": "tkmm-cli"
   },
-  "homepage": "https://github.com/TKVSC-Team/tkvsc-addons/tree/main/tkmm-cli",
+  "homepage": "https://github.com/BladesawStudios/tkvsc-addons/tree/main/tkmm-cli",
   "bugs": {
-    "url": "https://github.com/TKVSC-Team/tkvsc-addons/issues"
+    "url": "https://github.com/BladesawStudios/tkvsc-addons/issues"
   },
   "engines": {
     "vscode": "^1.125.0"
@@ -22,7 +22,7 @@
     "Other"
   ],
   "extensionDependencies": [
-    "TKVSC-Team.totk-vscode"
+    "BladesawStudios.totk-vscode"
   ],
   "activationEvents": [
     "onStartupFinished"

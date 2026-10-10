@@ -17,5 +17,5 @@ v1.0.0-beta.1
 This is still in beta, and the game profile system is not completely finished in the main plugin. There will be bugs!
 
 ## Find a bug? Let us know!
-- Head on over to [GitHub issues](https://github.com/TKVSC-Team/totk-vscode/issues) and create a bug report
+- Head on over to [GitHub issues](https://github.com/BladesawStudios/totk-vscode/issues) and create a bug report
 - We also offer support in our [Discord](https://discord.gg/vwPnX2uB8s)

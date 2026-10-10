@@ -16,7 +16,7 @@ export async function getTkvscApi(
     if (!extension) {
         if (!options?.silent) {
             void vscode.window.showErrorMessage(
-                'TKVSC is not installed. Install TKVSC-Team.totk-vscode before using this addon.',
+                'TKVSC is not installed. Install BladesawStudios.totk-vscode before using this addon.',
             );
         }
         return undefined;

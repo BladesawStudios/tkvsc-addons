@@ -3,7 +3,7 @@
   "displayName": "TKVSC Example Addon",
   "description": "Starter template for TKVSC companion extensions — copy this folder when building a new addon.",
   "version": "0.0.1",
-  "publisher": "TKVSC-Team",
+  "publisher": "BladesawStudios",
   "license": "MIT",
   "engines": {
     "vscode": "^1.125.0"
@@ -12,7 +12,7 @@
     "Other"
   ],
   "extensionDependencies": [
-    "TKVSC-Team.totk-vscode"
+    "BladesawStudios.totk-vscode"
   ],
   "activationEvents": [
     "onStartupFinished"

@@ -1,6 +1,6 @@
 # TKVSC Example Addon
 
-Starter template for companion extensions that extend [TKVSC](https://github.com/TKVSC-Team/totk-vscode).
+Starter template for companion extensions that extend [TKVSC](https://github.com/BladesawStudios/totk-vscode).
 
 **Copy this entire folder** when creating a new addon (e.g. `my-cool-addon/`), then rename the package, commands, and settings prefix.
 
@@ -17,7 +17,7 @@ Starter template for companion extensions that extend [TKVSC](https://github.com
 
 ## Prerequisites
 
-1. [TKVSC](https://github.com/TKVSC-Team/totk-vscode) built or installed (`TKVSC-Team.totk-vscode`)
+1. [TKVSC](https://github.com/BladesawStudios/totk-vscode) built or installed (`BladesawStudios.totk-vscode`)
 2. Node.js 18+
 
 ## Development (monorepo layout)
@@ -54,8 +54,8 @@ Enable `tkvscExample.enableVerboseLogging` for extra output on startup.
    - All `tkvsc-example.*` command IDs → `your-addon.*`
    - Settings prefix `tkvscExample` → `yourAddon`
 3. Add the folder to the root `tkvsc-addons/package.json` `workspaces` array
-4. Keep `extensionDependencies: ["TKVSC-Team.totk-vscode"]`
-5. Sync `src/tkvscTypes.ts` with [docs/api/v1.md](https://github.com/TKVSC-Team/totk-vscode/blob/main/docs/api/v1.md) when the API changes
+4. Keep `extensionDependencies: ["BladesawStudios.totk-vscode"]`
+5. Sync `src/tkvscTypes.ts` with [docs/api/v1.md](https://github.com/BladesawStudios/totk-vscode/blob/main/docs/api/v1.md) when the API changes
 
 ## Optional: declarative manifest
 
@@ -82,4 +82,4 @@ Add a `contributes.tkvsc` block to register formats without calling the API at r
 }
 ```
 
-See the [TKVSC addon development guide](https://github.com/TKVSC-Team/totk-vscode/blob/main/docs/addon-development.md) and [API reference](https://github.com/TKVSC-Team/totk-vscode/blob/main/docs/api/v1.md).
+See the [TKVSC addon development guide](https://github.com/BladesawStudios/totk-vscode/blob/main/docs/addon-development.md) and [API reference](https://github.com/BladesawStudios/totk-vscode/blob/main/docs/api/v1.md).

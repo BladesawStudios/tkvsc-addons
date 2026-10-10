@@ -4,7 +4,7 @@
  */
 import type * as vscode from 'vscode';
 
-export const TKVSC_EXTENSION_ID = 'TKVSC-Team.totk-vscode';
+export const TKVSC_EXTENSION_ID = 'BladesawStudios.totk-vscode';
 export const TKVSC_API_VERSION = 1 as const;
 
 export interface GameIndexingConfig {

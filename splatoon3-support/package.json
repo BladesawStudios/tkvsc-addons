@@ -4,7 +4,7 @@
   "displayName": "TKVSC - Splatoon 3",
   "description": "Registers Splatoon 3 as a TKVSC game profile and validates ModuleSystem RomFS dumps.",
   "version": "1.0.0-beta.3",
-  "publisher": "TKVSC-Team",
+  "publisher": "BladesawStudios",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
     "Other"
   ],
   "extensionDependencies": [
-    "TKVSC-Team.totk-vscode"
+    "BladesawStudios.totk-vscode"
   ],
   "activationEvents": [
     "onStartupFinished"

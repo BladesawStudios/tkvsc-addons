@@ -10,7 +10,7 @@ Registers **Splatoon 3** as a TKVSC game profile so RomFS dumps can be validated
 
 ## Setup
 
-1. Install [TKVSC](https://github.com/TKVSC-Team/totk-vscode) and this extension
+1. Install [TKVSC](https://github.com/BladesawStudios/totk-vscode) and this extension
 2. Command Palette → **Splatoon 3: Set Game Dump Path**
 3. Select your extracted RomFS folder (or a parent folder containing it)
 4. You can freely switch between games at any time in settings

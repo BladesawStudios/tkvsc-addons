@@ -87,7 +87,7 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
                 log(`  - ${root}`);
             }
             log(`active game: ${tkvsc.getActiveGameProfile().id}`);
-            log(`python: ${tkvsc.getBridge().getPython() || '(not configured)'}`);
+            log(`host: ${tkvsc.getBridge().getPython() || "(not available)"}`);
             output?.show(true);
         }),
     );

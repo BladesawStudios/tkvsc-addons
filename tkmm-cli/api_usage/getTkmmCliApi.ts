@@ -12,7 +12,7 @@ export async function getTkmmCliApi(
     if (!extension) {
         if (!options?.silent) {
             void vscode.window.showErrorMessage(
-                'TKVSC TKMM CLI is not installed. Install TKVSC-Team.tkvsc-tkmm-cli.',
+                'TKVSC TKMM CLI is not installed. Install BladesawStudios.tkvsc-tkmm-cli.',
             );
         }
         return undefined;
