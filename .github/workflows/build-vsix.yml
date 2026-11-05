@@ -27,6 +27,7 @@ jobs:
           - example-addon
           - tkmm-cli
           - splatoon3-support
+          - oot-support
 
     steps:
       - name: Checkout repository

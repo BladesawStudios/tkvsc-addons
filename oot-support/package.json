@@ -1,0 +1,108 @@
+{
+  "name": "tkvsc-oot",
+  "displayName": "TKVSC - Ocarina of Time",
+  "description": "Registers Ocarina of Time as a TKVSC game profile and validates RomFS dumps.",
+  "version": "1.0.0-beta.1",
+  "publisher": "BladesawStudios",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mindstormman06/tkvsc-addons",
+    "directory": "oot-support"
+  },
+  "homepage": "https://github.com/Mindstormman06/tkvsc-addons/tree/main/oot-support",
+  "bugs": {
+    "url": "https://github.com/Mindstormman06/tkvsc-addons/issues"
+  },
+  "engines": {
+    "vscode": "^1.125.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "extensionDependencies": [
+    "BladesawStudios.totk-vscode"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "tkvsc-oot.setGameDump",
+        "title": "Ocarina of Time: Set Game Dump Path",
+        "category": "TKVSC Ocarina of Time"
+      }
+    ],
+    "configuration": {
+      "title": "Ocarina of Time (TKVSC)",
+      "properties": {
+        "TKVSC.oot.romfsPath": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Path to your extracted **Ocarina of Time** RomFS dump. Must contain `Pack/Bootup.Nin_Ounce_NVN2.pack.zs`."
+        }
+      }
+    },
+    "tkvsc": {
+      "id": "oot",
+      "gameProfile": {
+        "id": "oot",
+        "displayName": "Ocarina of Time",
+        "romfsSentinel": "Pack/Bootup.Nin_Ounce_NVN2.pack.zs",
+        "compressionBackend": "totk-zstd",
+        "romfsSettingsKey": "oot.romfsPath",
+        "msbtConfigPath": "OoT.gcf",
+        "xlinkVersions": {
+          "elink": 36,
+          "slink": 34
+        },
+        "indexing": {
+          "enableRomfsSearch": true,
+          "enableCanonicalPaths": true,
+          "archiveExtensions": [
+            ".pack",
+            ".sarc",
+            ".genvb",
+            ".blarc",
+            ".bfarc",
+            ".bkres",
+            ".bntx",
+            ".pack.zs",
+            ".sarc.zs",
+            ".genvb.zs",
+            ".blarc.zs",
+            ".bfarc.zs",
+            ".bkres.zs",
+            ".bntx.zs"
+          ]
+        },
+        "archivePatterns": [
+          "\\.(pack|sarc|genvb|blarc|bfarc|bkres|bntx)(\\.zs)?$"
+        ]
+      },
+      "archivePatterns": [
+        "\\.(pack|sarc|genvb|blarc|bfarc|bkres|bntx)(\\.zs)?$"
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "tsc --noEmit && node esbuild.js",
+    "watch": "node esbuild.js --watch",
+    "lint": "eslint src --ext .ts",
+    "package": "tsc --noEmit && node esbuild.js",
+    "package:vsix": "npm run package && node -e \"require('fs').mkdirSync('out', { recursive: true }); require('child_process').execSync('npx vsce package --no-dependencies --allow-missing-repository --out out/tkvsc-oot-support-' + process.env.npm_package_version + '.vsix', { stdio: 'inherit', cwd: process.cwd() })\""
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.125.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "@vscode/vsce": "^3.9.2",
+    "esbuild": "^0.25.0",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.0"
+  }
+}
