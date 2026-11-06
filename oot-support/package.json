@@ -1,18 +1,19 @@
 {
   "name": "tkvsc-oot",
+  "icon": "icons/icon.png",
   "displayName": "TKVSC - Ocarina of Time",
-  "description": "Registers Ocarina of Time as a TKVSC game profile and validates RomFS dumps.",
+  "description": "TKVSC Ocarina of Time Support",
   "version": "1.0.0-beta.1",
-  "publisher": "BladesawStudios",
+  "publisher": "Bladesaw Studios",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Mindstormman06/tkvsc-addons",
+    "url": "https://github.com/BladesawStudios/tkvsc-addons",
     "directory": "oot-support"
   },
-  "homepage": "https://github.com/Mindstormman06/tkvsc-addons/tree/main/oot-support",
+  "homepage": "https://github.com/BladesawStudios/tkvsc-addons/tree/main/oot-support",
   "bugs": {
-    "url": "https://github.com/Mindstormman06/tkvsc-addons/issues"
+    "url": "https://github.com/BladesawStudios/tkvsc-addons/issues"
   },
   "engines": {
     "vscode": "^1.125.0"
