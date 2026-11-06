@@ -23,6 +23,8 @@ export const OOT_GAME_PROFILE: GameProfileRegistration = {
     },
     archivePatterns: ['\\.(pack|sarc|genvb|blarc|bfarc|bkres|bntx)(\\.zs)?$'],
     msbtConfigPath: 'OoT.gcf',
+    hashNamesPath: 'OoT.hashes.csv',
+    aampHashNamesPath: 'OoT.aampnames.json',
     xlinkVersions: { elink: 36, slink: 34 },
 };
 

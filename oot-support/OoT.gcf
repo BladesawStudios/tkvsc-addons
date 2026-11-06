@@ -1,8 +1,8 @@
 game: "The Legend of Zelda: Ocarina of Time"
 
 # Tags worked out from the game's messages. Names shared with TotK.gcf have the same ids and the same argument layout.
-# Not defined, so shown as {cmd:0xe:...}: 1:1 (four bytes, read as floats), 1:2, 1:3 (four bytes), 2:17, 3:0 (three bytes),
-# and the grammar tags 201:6 and up. A tag that doesn't fit its definition, like some 201:0, stays in that form too.
+# Not defined, so shown as {cmd:0xe:...}: 1:2, whose purpose is unclear. It takes no arguments and is on Dampe's diary pages and a few shouted lines.
+# Names marked "inferred" come from where the tag is used and what it holds; none is checked against the game's code.
 # Message files are UTF-8: a str is a 16-bit byte length and UTF-8 text, and nothing is padded.
 
 msbt:
@@ -175,8 +175,9 @@ msbt:
           dataType: u8
         - name: indefArticle
           dataType: u8
-        - name: isPlural
-          dataType: bool
+        - name: number
+          description: "inferred: 1 on nearly every word, 2 on words that name a pair or are always plural, such as \"oreilles\", \"Hasenohren\" and \"guantes\". TotK.gcf has this as a bool named isPlural, but 1 is on singular words here too"
+          dataType: u8
     - name: defArticle
       description: definite article determined by the next word
       group: 201
@@ -204,3 +205,96 @@ msbt:
           dataType: str
         - name: n
           dataType: str
+    - name: textSpeed
+      description: "inferred: speeds up or slows the text after it (0.1 before \"...\", 10 on a line cut off mid-word)"
+      group: 1
+      type: 1
+      arguments:
+        - name: scale
+          dataType: f32
+    - name: autoAdvance
+      description: "inferred: at the end of a message, moves on by itself after this many frames"
+      group: 1
+      type: 3
+      arguments:
+        - name: frames
+          dataType: u32
+    - name: playedSongName
+      description: "inferred: the name of the song just played, in \"You played ...!\""
+      group: 2
+      type: 17
+    - name: talkEmotion
+      description: "inferred: the speaker's mood from here on. The same in every language. mood 1 and 16 go with laughing, 2 and 17 anger, 3 and 18 sadness, 4 and 19 surprise, 0 and 15 neutral. flag is mostly 1 when an animation tag follows"
+      group: 3
+      type: 0
+      arguments:
+        - name: mood
+          dataType: u8
+        - name: flag
+          dataType: u8
+        - name: reserved
+          dataType: u8
+    - name: pluralCase
+      group: 201
+      type: 6
+      arguments:
+        - name: arg1
+          dataType: str
+          description: "EUfr/USfr: 0 or 1 item. EUru: numbers ending in 1, but not 11"
+        - name: arg2
+          dataType: str
+          description: "EUfr/USfr: 2 or more items. EUru: numbers ending in 2,3,4, but not 12,13,14"
+        - name: arg3
+          dataType: str
+          description: "EUru: numbers ending in 5,6,7,8,9,0, and 11,12,13,14"
+    - name: batchimObject
+      group: 201
+      type: 7
+      description: korean particle chosen by whether the syllable before it ends with a consonant, for an object
+      arguments:
+        - name: consonant
+          dataType: str
+        - name: vowel
+          dataType: str
+    - name: nounCase
+      group: 201
+      type: 9
+      arguments:
+        - name: type
+          dataType: u8
+    - name: gender10
+      group: 201
+      type: 10
+      arguments:
+        - name: arg1
+          dataType: str
+        - name: arg2
+          dataType: str
+        - name: arg3
+          dataType: str
+        - name: arg4
+          dataType: str
+        - name: arg5
+          dataType: str
+        - name: arg6
+          dataType: str
+        - name: arg7
+          dataType: str
+        - name: arg8
+          dataType: str
+        - name: arg9
+          dataType: str
+        - name: arg10
+          dataType: str
+        - name: arg11
+          dataType: str
+        - name: arg12
+          dataType: str
+    - name: properNoun
+      description: "inferred: comes before proper nouns, such as place names and Ganondorf"
+      group: 201
+      type: 13
+    - name: itemNoun
+      description: "inferred: comes before an item's name in a sentence, such as Deku seeds, Lon Lon milk or the item a shop is selling. Only English, French and Brazilian Portuguese use it"
+      group: 201
+      type: 15

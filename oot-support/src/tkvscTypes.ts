@@ -24,6 +24,10 @@ export interface GameProfileRegistration {
     archivePatterns?: string[];
     /** MSBT tag definitions (.gcf), relative to the registering addon root. */
     msbtConfigPath?: string;
+    /** File of `hash;type;name` lines naming flag hashes. */
+    hashNamesPath?: string;
+    /** More AAMP names, as JSON from hash to name. Relative to the registering addon root. */
+    aampHashNamesPath?: string;
     /** The XLink versions new files are written with. */
     xlinkVersions?: { elink?: number; slink?: number };
 }

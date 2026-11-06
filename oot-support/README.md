@@ -25,7 +25,7 @@ Everything else comes from core TKVSC, which reads the game's textures, dictiona
 
 ## Limits
 
-- Flag and save-variable hashes show as numbers: there's no list of this game's names yet
+- About a third of the flag and save-variable hashes, and 89 AAMP keys, still show as numbers
 - `OoT.gcf` names only the tags whose purpose could be worked out; the others show as `{cmd:0xe:...}`
 - Terrain files (`.hght`, `.mate`, `.extm`) and UI layouts and fonts (`.buil`, `.buif`) have no text form
 
