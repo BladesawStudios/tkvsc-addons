@@ -16,7 +16,7 @@ Press **F5** inside `example-addon/` (see its README) to run against a sibling `
 
 ## Documentation
 
-- [TKVSC addon development guide](https://github.com/BladesawStudios/totk-vscode/blob/main/docs/addon-development.md)
+- [TKVSC addon development guide](https://github.com/BladesawStudios/totk-vscode/blob/main/docs/api/addon-development.md)
 - [TKVSC API v1 reference](https://github.com/BladesawStudios/totk-vscode/blob/main/docs/api/v1.md)
 
 ## Creating a new addon

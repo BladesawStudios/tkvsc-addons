@@ -23,12 +23,6 @@ Everything else comes from core TKVSC, which reads the game's textures, dictiona
 | `TKVSC.oot.romfsPath` | Path to the Ocarina of Time RomFS dump |
 | `TKVSC.activeGameId` | Set to `oot` automatically by the setup command |
 
-## Limits
-
-- About a third of the flag and save-variable hashes, and 89 AAMP keys, still show as numbers
-- `OoT.gcf` names only the tags whose purpose could be worked out; the others show as `{cmd:0xe:...}`
-- Terrain files (`.hght`, `.mate`, `.extm`) and UI layouts and fonts (`.buil`, `.buif`) have no text form
-
 ## Development
 
 ```bash
