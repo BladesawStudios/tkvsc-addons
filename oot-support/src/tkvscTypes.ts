@@ -26,6 +26,8 @@ export interface GameProfileRegistration {
     msbtConfigPath?: string;
     /** File of `hash;type;name` lines naming flag hashes. */
     hashNamesPath?: string;
+    /** Names for hashed BYML values, one per line; shown in the text as `!hash Name`. */
+    valueNamesPath?: string;
     /** More AAMP names, as JSON from hash to name. Relative to the registering addon root. */
     aampHashNamesPath?: string;
     /** The XLink versions new files are written with. */
@@ -35,6 +37,18 @@ export interface GameProfileRegistration {
 export interface GameProfile extends GameProfileRegistration {
     source: 'builtin' | 'manifest' | 'api';
     msbtConfigResolvedPath?: string;
+}
+
+export interface TkvscBridgeAccess {
+    getHost(): string;
+    getBridgeEnv(): NodeJS.ProcessEnv;
+    runBridgeJsonAsync<T>(
+        hostExecutable: string,
+        bridgePath: string,
+        args: string[],
+        stdin?: string,
+        env?: NodeJS.ProcessEnv,
+    ): Promise<T>;
 }
 
 export interface TkvscApi {
@@ -47,4 +61,8 @@ export interface TkvscApi {
     ): vscode.Disposable;
     getActiveGameProfile(): GameProfile;
     getGameProfile(gameId: string): GameProfile | undefined;
+    getProjectRoots(): string[];
+    readRawBytes(uri: vscode.Uri): Promise<Uint8Array>;
+    writeRawBytes(uri: vscode.Uri, data: Uint8Array): Promise<void>;
+    getBridge(): TkvscBridgeAccess;
 }

@@ -29,6 +29,21 @@
   ],
   "main": "./dist/extension.js",
   "contributes": {
+    "customEditors": [
+      {
+        "viewType": "tkvsc-oot.melodyScoreBook",
+        "displayName": "Ocarina Song Editor",
+        "selector": [
+          {
+            "filenamePattern": "*.game__ocarina__MelodyScoreBook.bgyml"
+          },
+          {
+            "filenamePattern": "*.game__ocarina__MelodyScoreBook.bgyml.zs"
+          }
+        ],
+        "priority": "default"
+      }
+    ],
     "commands": [
       {
         "command": "tkvsc-oot.setGameDump",
@@ -56,6 +71,7 @@
         "romfsSettingsKey": "oot.romfsPath",
         "msbtConfigPath": "OoT.gcf",
         "hashNamesPath": "OoT.hashes.csv",
+        "valueNamesPath": "OoT.valuenames.txt",
         "aampHashNamesPath": "OoT.aampnames.json",
         "xlinkVersions": {
           "elink": 36,

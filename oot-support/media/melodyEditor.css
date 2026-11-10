@@ -1,0 +1,477 @@
+:root {
+    --gap: 12px;
+    --radius: 6px;
+    --card: var(--vscode-editorWidget-background, rgba(127, 127, 127, 0.06));
+    --border: var(--vscode-widget-border, var(--vscode-panel-border, rgba(127, 127, 127, 0.3)));
+    --muted: var(--vscode-descriptionForeground);
+    --accent: var(--vscode-focusBorder);
+    --playable: var(--vscode-charts-blue, #3794ff);
+    --unplayable: var(--vscode-editorWarning-foreground, #cca700);
+    --error: var(--vscode-editorError-foreground, #f14c4c);
+    --info: var(--vscode-editorInfo-foreground, #3794ff);
+    --staff: var(--vscode-editor-foreground);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0 20px 40px;
+    color: var(--vscode-editor-foreground);
+    background: var(--vscode-editor-background);
+    font-family: var(--vscode-font-family);
+    font-size: var(--vscode-font-size);
+}
+
+button,
+select,
+input {
+    font: inherit;
+    color: inherit;
+}
+
+button {
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 4px 10px;
+    cursor: pointer;
+    background: var(--vscode-button-background);
+    color: var(--vscode-button-foreground);
+}
+
+button:hover:not(:disabled) {
+    background: var(--vscode-button-hoverBackground);
+}
+
+button.secondary {
+    background: var(--vscode-button-secondaryBackground);
+    color: var(--vscode-button-secondaryForeground);
+}
+
+button.secondary:hover:not(:disabled) {
+    background: var(--vscode-button-secondaryHoverBackground);
+}
+
+button.icon {
+    background: transparent;
+    color: var(--vscode-icon-foreground, inherit);
+    padding: 2px 7px;
+    min-width: 28px;
+}
+
+button.icon:hover:not(:disabled) {
+    background: var(--vscode-toolbar-hoverBackground, rgba(127, 127, 127, 0.15));
+}
+
+button:disabled {
+    opacity: 0.45;
+    cursor: default;
+}
+
+button:focus-visible,
+select:focus-visible,
+input:focus-visible {
+    outline: 1px solid var(--accent);
+    outline-offset: 1px;
+}
+
+select,
+input[type='number'] {
+    background: var(--vscode-input-background);
+    border: 1px solid var(--vscode-input-border, var(--border));
+    border-radius: 4px;
+    padding: 3px 6px;
+}
+
+select {
+    background: var(--vscode-dropdown-background);
+    border-color: var(--vscode-dropdown-border, var(--border));
+}
+
+/* ---- top bar ---- */
+
+.top {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--gap);
+    padding: 14px 0 12px;
+    background: var(--vscode-editor-background);
+    border-bottom: 1px solid var(--border);
+}
+
+.top h1 {
+    margin: 0;
+    font-size: 1.35em;
+    font-weight: 600;
+}
+
+.top .file {
+    color: var(--muted);
+    font-size: 0.9em;
+}
+
+.top .spacer {
+    flex: 1;
+}
+
+.tempo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+}
+
+.tempo output {
+    min-width: 58px;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ---- banners and warnings ---- */
+
+.banner {
+    margin-top: var(--gap);
+    padding: 8px 12px;
+    border-radius: var(--radius);
+    border-left: 3px solid var(--info);
+    background: var(--vscode-textBlockQuote-background, var(--card));
+}
+
+.banner.error {
+    border-left-color: var(--error);
+}
+
+.banner.readonly {
+    border-left-color: var(--unplayable);
+}
+
+.summary {
+    margin-top: var(--gap);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    color: var(--muted);
+}
+
+.warnings {
+    margin: var(--gap) 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.warnings li,
+.song-warnings li {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+    padding: 3px 0;
+}
+
+.warnings li {
+    cursor: pointer;
+}
+
+.warnings li:hover {
+    text-decoration: underline;
+}
+
+.badge {
+    flex: none;
+    font-size: 0.8em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.badge.error { color: var(--error); }
+.badge.warning { color: var(--unplayable); }
+.badge.info { color: var(--info); }
+
+/* ---- songs ---- */
+
+.songs {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--gap);
+    margin-top: var(--gap);
+}
+
+.song {
+    min-width: 0;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--card);
+    padding: 10px 12px 12px;
+}
+
+.song.active {
+    border-left-color: var(--accent);
+}
+
+.song.has-warning {
+    border-left-color: var(--unplayable);
+}
+
+.song.has-error {
+    border-left-color: var(--error);
+}
+
+.song.flash {
+    animation: flash 1s ease-out;
+}
+
+@keyframes flash {
+    from { box-shadow: 0 0 0 3px var(--accent); }
+    to { box-shadow: 0 0 0 0 transparent; }
+}
+
+.song.drop-before {
+    box-shadow: 0 -3px 0 0 var(--accent);
+}
+
+.song-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.grip {
+    cursor: grab;
+    color: var(--muted);
+    user-select: none;
+    padding: 0 2px;
+}
+
+.num {
+    font-weight: 600;
+    min-width: 1.6em;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.song-head select {
+    min-width: 220px;
+}
+
+.song-head .count {
+    color: var(--muted);
+}
+
+.song-head .spacer {
+    flex: 1;
+}
+
+.tools {
+    display: inline-flex;
+    gap: 2px;
+}
+
+.sep {
+    width: 1px;
+    align-self: stretch;
+    margin: 2px 4px;
+    background: var(--border);
+}
+
+/* ---- the staff, which is the editor ---- */
+
+.staff-scroll {
+    overflow-x: auto;
+    margin: 8px 0 2px;
+}
+
+.staff {
+    display: block;
+    user-select: none;
+    touch-action: none;
+    cursor: crosshair;
+}
+
+.staff.readonly {
+    cursor: default;
+}
+
+.staff .line {
+    stroke: var(--staff);
+    stroke-opacity: 0.4;
+    stroke-width: 1;
+}
+
+.staff .band {
+    fill: var(--playable);
+    opacity: 0.08;
+}
+
+.staff .row-label {
+    fill: var(--playable);
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.staff .ledger {
+    stroke: var(--staff);
+    stroke-opacity: 0.6;
+}
+
+.staff .head.playable,
+.staff .accidental.playable {
+    fill: var(--playable);
+}
+
+.staff .head.unplayable,
+.staff .accidental.unplayable {
+    fill: var(--unplayable);
+}
+
+.staff .accidental {
+    font-size: 15px;
+}
+
+.staff .head.unknown {
+    fill: var(--error);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.staff .stem {
+    stroke-width: 1.4;
+}
+
+.staff .stem.playable {
+    stroke: var(--playable);
+}
+
+.staff .stem.unplayable {
+    stroke: var(--unplayable);
+}
+
+.staff .rest {
+    fill: var(--staff);
+    opacity: 0.85;
+}
+
+.staff .note {
+    cursor: grab;
+}
+
+.staff .note:hover .head,
+.staff .note:hover .rest {
+    filter: brightness(1.3);
+}
+
+.staff .note.lifted {
+    opacity: 0.25;
+}
+
+.staff .name {
+    font-size: 11px;
+    fill: var(--muted);
+}
+
+.staff .name.unplayable {
+    fill: var(--unplayable);
+}
+
+.staff .name.unknown {
+    fill: var(--error);
+}
+
+.staff .sel {
+    fill: var(--vscode-editor-selectionBackground, rgba(38, 79, 120, 0.6));
+    opacity: 0.5;
+}
+
+.staff .add-col {
+    fill: none;
+    stroke: var(--border);
+    stroke-dasharray: 3 3;
+}
+
+.staff .empty-hint {
+    fill: var(--muted);
+    font-size: 12px;
+    font-style: italic;
+}
+
+.staff .ghost,
+.staff .ghosted {
+    pointer-events: none;
+}
+
+.staff .ghosted {
+    opacity: 0.45;
+}
+
+.staff .ghost-label {
+    fill: var(--vscode-editor-foreground);
+    font-size: 11px;
+    paint-order: stroke;
+    stroke: var(--vscode-editor-background);
+    stroke-width: 3px;
+}
+
+.staff .playing {
+    fill: var(--vscode-charts-green, #89d185);
+}
+
+.hint {
+    color: var(--muted);
+    font-size: 0.88em;
+    margin-top: 2px;
+}
+
+.fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    margin-top: 10px;
+}
+
+.fields label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+}
+
+.fields input {
+    width: 90px;
+}
+
+.song-warnings {
+    margin: 8px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.hidden-fields {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 0.9em;
+}
+
+.toast {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    max-width: 420px;
+    padding: 8px 12px;
+    border-radius: var(--radius);
+    background: var(--vscode-notifications-background, var(--card));
+    color: var(--vscode-notifications-foreground, inherit);
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.add-song-row {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--gap);
+}

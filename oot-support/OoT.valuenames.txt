@@ -1,0 +1,40 @@
+# Ocarina of Time names for hashed BYML values (profile valueNamesPath).
+# A !u value equal to a name's MurmurHash3 (x86 32-bit, seed 0) shows in the text editor as `!hash Name`,
+# and any `!hash Name` is saved as that hash.
+
+# Ocarina notes (MelodyScoreBook MelodyScore entries). Only D, F, A, B and HighD can be played with the buttons.
+Rest
+LowB
+LowC
+LowCsharp
+D
+Dsharp
+E
+F
+Fsharp
+G
+Gsharp
+A
+Asharp
+B
+C
+Csharp
+HighD
+HighDsharp
+HighE
+HighF
+
+# Songs (MelodyScoreBook MelodyType). A score with no MelodyType is ZeldaLullaby.
+ZeldaLullaby
+EponaSong
+SariaSong
+SunSong
+TimeSong
+StormSong
+ForestMinuet
+FireBolero
+WaterSerenade
+SpiritRequiem
+ShadowNocturne
+LightPrelude
+ScarecrowSong

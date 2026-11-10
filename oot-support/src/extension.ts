@@ -6,6 +6,7 @@ import {
     resolveOotRomfsRoot,
 } from './gameProfile';
 import { getTkvscApi } from './getTkvscApi';
+import { MelodyEditorProvider } from './melody/editor';
 
 const ROMFS_SETTINGS_KEY = 'oot.romfsPath';
 
@@ -30,6 +31,7 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
 
     context.subscriptions.push(
         vscode.commands.registerCommand('tkvsc-oot.setGameDump', setGameDump),
+        MelodyEditorProvider.register(context, api),
     );
 }
 
