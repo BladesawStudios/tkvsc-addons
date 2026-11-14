@@ -6,6 +6,8 @@ So far:
 
 - `.LZ` (LZ11) files and U8 archives (`.arc`, `.arc.LZ`) open, browse, index and save like any other archive.
 - `.msbf` message flows open as text: entry points, then one line per node, with each branch's targets listed on it. Saving rebuilds the branch table, and keeps the file's header and layout.
+- `.msbp` message projects open as text: the colour table (`main.msbp` has 49 colours and nothing else), plus colour labels if a file has any.
+- `.msbt` uses TKVSC's built-in handler.
 
 ## Layout
 

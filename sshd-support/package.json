@@ -64,7 +64,8 @@
         "hostPlugin": "bin/plugin/Tkvsc.Sshd.Plugin.dll"
       },
       "formats": [
-        { "extensions": ["msbf"], "handler": "msbf", "language": "yaml", "editable": true }
+        { "extensions": ["msbf"], "handler": "msbf", "language": "yaml", "editable": true },
+        { "extensions": ["msbp"], "handler": "msbp", "language": "yaml", "editable": true }
       ]
     }
   },

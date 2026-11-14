@@ -5,7 +5,7 @@ using Tkvsc.Plugins;
 namespace Tkvsc.Sshd;
 
 /// <summary>
-/// Skyward Sword HD: LZ11 compression, U8 archives and MSBF message flows. The host runs <see cref="Configure"/> for every command,
+/// Skyward Sword HD: LZ11 compression, U8 archives, MSBF message flows and MSBP message projects. The host runs <see cref="Configure"/> for every command,
 /// so it only registers.
 /// </summary>
 public sealed class SshdPlugin : IGamePlugin
@@ -15,5 +15,6 @@ public sealed class SshdPlugin : IGamePlugin
         builder.UseCompression(new LzCompression());
         builder.AddArchiveFormat(new U8ArchiveFormat());
         builder.AddFormat("msbf", new MsbfFormat());
+        builder.AddFormat("msbp", new MsbpFormat());
     }
 }
