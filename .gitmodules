@@ -1,0 +1,40 @@
+[submodule "sshd-support/plugin/libs/TexSharp"]
+	path = sshd-support/plugin/libs/TexSharp
+	url = https://github.com/BladesawStudios/TexSharp.git
+[submodule "sshd-support/plugin/libs/BntxSharp"]
+	path = sshd-support/plugin/libs/BntxSharp
+	url = https://github.com/BladesawStudios/BntxSharp.git
+[submodule "sshd-support/plugin/libs/MsbtSharp"]
+	path = sshd-support/plugin/libs/MsbtSharp
+	url = https://github.com/BladesawStudios/MsbtSharp.git
+[submodule "sshd-support/plugin/libs/LzSharp"]
+	path = sshd-support/plugin/libs/LzSharp
+	url = https://github.com/Mindstormman06/LzSharp.git
+[submodule "sshd-support/plugin/libs/U8Sharp"]
+	path = sshd-support/plugin/libs/U8Sharp
+	url = https://github.com/Mindstormman06/U8Sharp.git
+[submodule "sshd-support/plugin/libs/BzsSharp"]
+	path = sshd-support/plugin/libs/BzsSharp
+	url = https://github.com/Mindstormman06/BzsSharp.git
+[submodule "sshd-support/plugin/libs/BresSharp"]
+	path = sshd-support/plugin/libs/BresSharp
+	url = https://github.com/Mindstormman06/BresSharp.git
+[submodule "sshd-support/plugin/libs/XtxSharp"]
+	path = sshd-support/plugin/libs/XtxSharp
+	url = https://github.com/Mindstormman06/XtxSharp.git
+[submodule "sshd-support/plugin/libs/BrLayoutSharp"]
+	path = sshd-support/plugin/libs/BrLayoutSharp
+	url = https://github.com/Mindstormman06/BrLayoutSharp.git
+[submodule "sshd-support/plugin/libs/BrFontSharp"]
+	path = sshd-support/plugin/libs/BrFontSharp
+	url = https://github.com/Mindstormman06/BrFontSharp.git
+[submodule "sshd-support/plugin/libs/KclSharp"]
+	path = sshd-support/plugin/libs/KclSharp
+	url = https://github.com/Mindstormman06/KclSharp.git
+[submodule "sshd-support/plugin/libs/DzbSharp"]
+	path = sshd-support/plugin/libs/DzbSharp
+	url = https://github.com/Mindstormman06/DzbSharp.git
+[submodule "sshd-support/plugin/libs/totk-vscode"]
+	path = sshd-support/plugin/libs/totk-vscode
+	url = https://github.com/TKVSC-Team/totk-vscode.git
+	shallow = true

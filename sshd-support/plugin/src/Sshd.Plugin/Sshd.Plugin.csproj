@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    The Skyward Sword HD game plugin for the TKVSC host. `npm run build:plugin` in sshd-support publishes it to bin/plugin,
+    which the game profile names in `hostPlugin`.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>Tkvsc.Sshd.Plugin</AssemblyName>
+    <RootNamespace>Tkvsc.Sshd</RootNamespace>
+    <!-- Lists private dependencies in the .deps.json the host reads, and lets the framework come from the host. -->
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+  </PropertyGroup>
+
+  <!-- The host has these at run time: compile against them and don't ship copies. Their pins must match the host's. -->
+  <ItemGroup>
+    <ProjectReference Include="$(TkvscRoot)\host\src\TkvscHost.PluginApi\TkvscHost.PluginApi.csproj" Private="false" ExcludeAssets="runtime" />
+    <ProjectReference Include="$(SshdLibRoot)\TexSharp\src\TexSharp\TexSharp.csproj" Private="false" ExcludeAssets="runtime" />
+    <ProjectReference Include="$(SshdLibRoot)\BntxSharp\src\BntxSharp\BntxSharp.csproj" Private="false" ExcludeAssets="runtime" />
+    <ProjectReference Include="$(SshdLibRoot)\MsbtSharp\src\MsbtSharp\MsbtSharp.csproj" Private="false" ExcludeAssets="runtime" />
+  </ItemGroup>
+
+  <!-- The host doesn't have these, so they ship beside the plugin. -->
+  <ItemGroup>
+    <ProjectReference Include="$(SshdLibRoot)\LzSharp\src\LzSharp\LzSharp.csproj" />
+    <ProjectReference Include="$(SshdLibRoot)\U8Sharp\src\U8Sharp\U8Sharp.csproj" />
+    <ProjectReference Include="$(SshdLibRoot)\BzsSharp\src\BzsSharp\BzsSharp.csproj" />
+    <ProjectReference Include="$(SshdLibRoot)\BresSharp\src\BresSharp\BresSharp.csproj" />
+    <ProjectReference Include="$(SshdLibRoot)\XtxSharp\src\XtxSharp\XtxSharp.csproj" />
+    <ProjectReference Include="$(SshdLibRoot)\BrLayoutSharp\src\BrLayoutSharp\BrLayoutSharp.csproj" />
+    <ProjectReference Include="$(SshdLibRoot)\BrFontSharp\src\BrFontSharp\BrFontSharp.csproj" />
+    <ProjectReference Include="$(SshdLibRoot)\KclSharp\src\KclSharp\KclSharp.csproj" />
+    <ProjectReference Include="$(SshdLibRoot)\DzbSharp\src\DzbSharp\DzbSharp.csproj" />
+  </ItemGroup>
+
+  <!--
+    XtxSharp and BrFontSharp reference TexSharp and BntxSharp themselves, which would copy them in anyway. The host's copies
+    win at run time, so drop ours from the build and publish output.
+  -->
+  <PropertyGroup>
+    <HostAssemblies>;Tkvsc.PluginApi;TexSharp;BntxSharp;MsbtSharp;</HostAssemblies>
+  </PropertyGroup>
+  <Target Name="DropHostAssemblies" AfterTargets="ResolveAssemblyReferences">
+    <ItemGroup>
+      <_HostCopy Include="@(ReferenceCopyLocalPaths)" Condition="$(HostAssemblies.Contains(';%(Filename);'))" />
+      <ReferenceCopyLocalPaths Remove="@(_HostCopy)" />
+    </ItemGroup>
+  </Target>
+
+</Project>

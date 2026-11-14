@@ -1,0 +1,88 @@
+{
+  "name": "tkvsc-sshd",
+  "displayName": "TKVSC - Skyward Sword HD",
+  "description": "TKVSC Skyward Sword HD Support",
+  "version": "0.1.0",
+  "publisher": "BladesawStudios",
+  "license": "AGPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BladesawStudios/tkvsc-addons",
+    "directory": "sshd-support"
+  },
+  "homepage": "https://github.com/BladesawStudios/tkvsc-addons/tree/main/sshd-support",
+  "bugs": {
+    "url": "https://github.com/BladesawStudios/tkvsc-addons/issues"
+  },
+  "engines": {
+    "vscode": "^1.125.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "extensionDependencies": [
+    "BladesawStudios.totk-vscode"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "tkvsc-sshd.setGameDump",
+        "title": "Skyward Sword HD: Set Game Dump Path",
+        "category": "TKVSC Skyward Sword HD"
+      }
+    ],
+    "configuration": {
+      "title": "Skyward Sword HD (TKVSC)",
+      "properties": {
+        "TKVSC.sshd.romfsPath": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Path to your extracted **Skyward Sword HD** RomFS dump. Must contain `Object/NX/ObjectPack.arc.LZ`."
+        }
+      }
+    },
+    "tkvsc": {
+      "id": "sshd",
+      "gameProfile": {
+        "id": "sshd",
+        "displayName": "Skyward Sword HD",
+        "romfsSentinel": "Object/NX/ObjectPack.arc.LZ",
+        "compressionBackend": "plugin",
+        "compressedSuffixes": [".LZ"],
+        "romfsSettingsKey": "sshd.romfsPath",
+        "indexing": {
+          "enableRomfsSearch": true,
+          "enableCanonicalPaths": false,
+          "archiveExtensions": [".arc", ".arc.LZ"]
+        },
+        "archivePatterns": ["\\.arc(\\.LZ)?$"],
+        "aampNameTable": "none",
+        "hostPlugin": "bin/plugin/Tkvsc.Sshd.Plugin.dll"
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build:plugin && npm run package",
+    "build:plugin": "node scripts/build-plugin.js",
+    "check:pins": "node scripts/build-plugin.js --check",
+    "compile": "tsc --noEmit && node esbuild.js",
+    "watch": "node esbuild.js --watch",
+    "lint": "eslint src --ext .ts",
+    "package": "tsc --noEmit && node esbuild.js",
+    "package:vsix": "npm run build:plugin && npm run package && node -e \"require('fs').mkdirSync('out', { recursive: true }); require('child_process').execSync('npx vsce package --no-dependencies --allow-missing-repository --out out/tkvsc-sshd-support-' + process.env.npm_package_version + '.vsix', { stdio: 'inherit', cwd: process.cwd() })\""
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.125.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "@vscode/vsce": "^3.9.2",
+    "esbuild": "^0.25.0",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.0"
+  }
+}

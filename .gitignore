@@ -146,3 +146,7 @@ tkmm-cli/bin/Logs
 tkmm-cli/bin/.data
 tkmm-cli/bin/.data2
 tkmm-cli/bin/.layout
+# Skyward Sword HD plugin build output
+sshd-support/bin/
+sshd-support/plugin/src/**/bin/
+sshd-support/plugin/src/**/obj/
