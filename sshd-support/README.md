@@ -2,7 +2,10 @@
 
 Skyward Sword HD support for [TKVSC](https://github.com/TKVSC-Team/totk-vscode).
 
-So far: `.LZ` (LZ11) files and U8 archives (`.arc`, `.arc.LZ`) open, browse, index and save like any other archive.
+So far:
+
+- `.LZ` (LZ11) files and U8 archives (`.arc`, `.arc.LZ`) open, browse, index and save like any other archive.
+- `.msbf` message flows open as text: entry points, then one line per node, with each branch's targets listed on it. Saving rebuilds the branch table, and keeps the file's header and layout.
 
 ## Layout
 

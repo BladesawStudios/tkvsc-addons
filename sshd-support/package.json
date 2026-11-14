@@ -62,7 +62,10 @@
         "archivePatterns": ["\\.arc(\\.LZ)?$"],
         "aampNameTable": "none",
         "hostPlugin": "bin/plugin/Tkvsc.Sshd.Plugin.dll"
-      }
+      },
+      "formats": [
+        { "extensions": ["msbf"], "handler": "msbf", "language": "yaml", "editable": true }
+      ]
     }
   },
   "scripts": {
