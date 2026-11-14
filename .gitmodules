@@ -38,3 +38,6 @@
 	path = sshd-support/plugin/libs/totk-vscode
 	url = https://github.com/TKVSC-Team/totk-vscode.git
 	shallow = true
+[submodule "sshd-support/plugin/libs/JParticleSharp"]
+	path = sshd-support/plugin/libs/JParticleSharp
+	url = https://github.com/Mindstormman06/JParticleSharp.git

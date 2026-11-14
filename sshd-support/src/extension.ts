@@ -6,6 +6,8 @@ import {
     resolveSshdRomfsRoot,
 } from './gameProfile';
 import { getTkvscApi } from './getTkvscApi';
+import { FontViewerProvider } from './viewers/fontViewer';
+import { TextureViewerProvider } from './viewers/textureViewer';
 
 const ROMFS_SETTINGS_KEY = 'sshd.romfsPath';
 
@@ -30,6 +32,8 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
 
     context.subscriptions.push(
         vscode.commands.registerCommand('tkvsc-sshd.setGameDump', setGameDump),
+        TextureViewerProvider.register(context, api),
+        FontViewerProvider.register(context, api),
     );
 }
 

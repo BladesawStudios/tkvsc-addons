@@ -28,6 +28,38 @@
   ],
   "main": "./dist/extension.js",
   "contributes": {
+    "customEditors": [
+      {
+        "viewType": "tkvsc-sshd.textureViewer",
+        "displayName": "Skyward Sword HD Textures",
+        "selector": [
+          { "filenamePattern": "*.xtx" },
+          { "filenamePattern": "*.tpl" },
+          { "filenamePattern": "*.bti" },
+          { "filenamePattern": "*.brtex" },
+          { "filenamePattern": "*.brres" },
+          { "filenamePattern": "*.brresC" }
+        ],
+        "priority": "default"
+      },
+      {
+        "viewType": "tkvsc-sshd.textureViewer",
+        "displayName": "Skyward Sword HD Textures",
+        "selector": [
+          { "filenamePattern": "*.jpc" }
+        ],
+        "priority": "option"
+      },
+      {
+        "viewType": "tkvsc-sshd.fontViewer",
+        "displayName": "Skyward Sword HD Font",
+        "selector": [
+          { "filenamePattern": "*.brfnt" },
+          { "filenamePattern": "*.brfna" }
+        ],
+        "priority": "default"
+      }
+    ],
     "commands": [
       {
         "command": "tkvsc-sshd.setGameDump",
@@ -65,7 +97,9 @@
       },
       "formats": [
         { "extensions": ["msbf"], "handler": "msbf", "language": "yaml", "editable": true },
-        { "extensions": ["msbp"], "handler": "msbp", "language": "yaml", "editable": true }
+        { "extensions": ["msbp"], "handler": "msbp", "language": "yaml", "editable": true },
+        { "extensions": ["jpc"], "handler": "jpc", "language": "yaml", "editable": true },
+        { "extensions": ["jpn"], "handler": "jpn", "language": "yaml", "editable": true }
       ]
     }
   },

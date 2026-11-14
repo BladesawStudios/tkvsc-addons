@@ -20,6 +20,8 @@
     <ProjectReference Include="$(SshdLibRoot)\TexSharp\src\TexSharp\TexSharp.csproj" Private="false" ExcludeAssets="runtime" />
     <ProjectReference Include="$(SshdLibRoot)\BntxSharp\src\BntxSharp\BntxSharp.csproj" Private="false" ExcludeAssets="runtime" />
     <ProjectReference Include="$(SshdLibRoot)\MsbtSharp\src\MsbtSharp\MsbtSharp.csproj" Private="false" ExcludeAssets="runtime" />
+    <!-- The host's version; a newer one there still loads, since .NET binds to the host's copy. -->
+    <PackageReference Include="YamlDotNet" Version="18.1.0" ExcludeAssets="runtime" />
   </ItemGroup>
 
   <!-- The host doesn't have these, so they ship beside the plugin. -->
@@ -33,6 +35,7 @@
     <ProjectReference Include="$(SshdLibRoot)\BrFontSharp\src\BrFontSharp\BrFontSharp.csproj" />
     <ProjectReference Include="$(SshdLibRoot)\KclSharp\src\KclSharp\KclSharp.csproj" />
     <ProjectReference Include="$(SshdLibRoot)\DzbSharp\src\DzbSharp\DzbSharp.csproj" />
+    <ProjectReference Include="$(SshdLibRoot)\JParticleSharp\src\JParticleSharp\JParticleSharp.csproj" />
   </ItemGroup>
 
   <!--
@@ -40,7 +43,7 @@
     win at run time, so drop ours from the build and publish output.
   -->
   <PropertyGroup>
-    <HostAssemblies>;Tkvsc.PluginApi;TexSharp;BntxSharp;MsbtSharp;</HostAssemblies>
+    <HostAssemblies>;Tkvsc.PluginApi;TexSharp;BntxSharp;MsbtSharp;YamlDotNet;</HostAssemblies>
   </PropertyGroup>
   <Target Name="DropHostAssemblies" AfterTargets="ResolveAssemblyReferences">
     <ItemGroup>

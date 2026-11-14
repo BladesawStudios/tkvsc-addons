@@ -4,11 +4,12 @@
     <SshdLibRoot>$(MSBuildThisFileDirectory)libs</SshdLibRoot>
     <TkvscRoot>$(SshdLibRoot)\totk-vscode</TkvscRoot>
     <!--
-      XtxSharp, BrFontSharp and BntxSharp embed their dependencies as their own submodules. These make them use the copies
+      XtxSharp, BrFontSharp, JParticleSharp and BntxSharp embed their dependencies as their own submodules. These make them use the copies
       in libs instead, so there is one TexSharp and one BntxSharp, pinned to what the host ships.
     -->
     <XtxLibRoot>$(SshdLibRoot)</XtxLibRoot>
     <FontLibRoot>$(SshdLibRoot)</FontLibRoot>
+    <JpaLibRoot>$(SshdLibRoot)</JpaLibRoot>
     <BntxLibRoot>$(SshdLibRoot)</BntxLibRoot>
     <U8LibRoot>$(SshdLibRoot)</U8LibRoot>
     <BzsLibRoot>$(SshdLibRoot)</BzsLibRoot>
